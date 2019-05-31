@@ -1,0 +1,135 @@
+@mixin dotStatus($status) {
+  display: flex;
+  background-color: currentColor;
+  height: $status;
+  transform-origin: 50% 100%;
+  transition: height .1s cubic-bezier(.3,0,.45,1);
+  width: 18px;
+}
+
+
+@mixin arrow_icon {
+  display: inline-block;
+  vertical-align: text-top;
+  height: 24px;
+  width: 24px;
+}
+
+@mixin right_arrow($opacity) {
+  right: 1.5%;
+  height: 24px;
+  width: 24px;
+  top: 36%;
+  margin-top: -12px;
+  position: absolute;
+  z-index: 31;
+  transition: all .2s cubic-bezier(.3,0,.45,1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: $opacity;
+  background-color: #fff;
+  color: #000;
+}
+
+@mixin left_arrow($opacity) {
+  left: 1%;
+  height: 24px;
+  width: 24px;
+  top: 36%;
+  margin-top: -12px;
+  position: absolute;
+  z-index: 31;
+  transition: all .5s cubic-bezier(.3,0,.45,1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: $opacity;
+  background-color: #fff;
+  color: #000;
+}
+
+
+.list_row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .col {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    //arrow
+
+      .list_wrapper {
+        display: flex;
+        position: relative;
+        max-width: 1366px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateX(0%);
+        transition: transform 0.2s ease;
+        overflow: hidden;
+
+        .right_arrow {
+          @include right_arrow(0.7);
+          
+          .arrow_icon {
+            @include arrow_icon();
+          }
+        }
+    
+        .left_arrow {
+          @include left_arrow(1);
+    
+          .arrow_icon {
+            @include arrow_icon;
+          }
+        }
+      }
+    
+
+    .li_indicator_wrapper {
+      color: #000;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0px 8px;
+      pointer-events: auto;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+    }
+    
+    .li_indicator_item {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+      height: 4px;
+      padding: 4px 3px;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0 8px;
+    }
+    
+    .li_indicator_dot {
+      @include dotStatus(25%);
+    }
+    
+    .li_indicator_dot_selected {
+      @include dotStatus(100%);
+    }
+    
+    .li_indicator_dot:hover {
+      @include dotStatus(100%);
+    }
+  }
+}

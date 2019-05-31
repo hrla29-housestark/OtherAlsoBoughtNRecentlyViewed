@@ -1,0 +1,209 @@
+@mixin arrow_icon {
+  display: inline-block;
+  vertical-align: text-top;
+  height: 24px;
+  width: 24px;
+}
+
+@mixin right_arrow($opacity) {
+  right: -0.1%;
+  height: 24px;
+  width: 24px;
+  top: 36%;
+  margin-top: -12px;
+  position: absolute;
+  z-index: 31;
+  transition: all .2s cubic-bezier(.3,0,.45,1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: $opacity;
+  background-color: #fff;
+  color: #000;
+}
+
+@mixin left_arrow($opacity) {
+  left: 3%;
+  height: 24px;
+  width: 24px;
+  top: 36%;
+  margin-top: -12px;
+  position: absolute;
+  z-index: 31;
+  transition: all .5s cubic-bezier(.3,0,.45,1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: $opacity;
+  background-color: #fff;
+  color: #000;
+}
+
+.item_wrapper {
+  padding: 0 5px;
+  width: 25%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+
+  .card_container {
+    justify-content: space-around;
+    cursor: pointer;
+    padding: 20px 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    margin-left: 4.16667%;
+    width: 91.66667%;
+
+    &:hover {
+      border: 1px solid black;
+    }
+
+    //arrow
+
+    .right_arrow {
+      @include right_arrow(0.7);
+      
+      .arrow_icon {
+        @include arrow_icon();
+      }
+    }
+
+    .left_arrow {
+      @include left_arrow(1);
+
+      .arrow_icon {
+        @include arrow_icon;
+      }
+    }
+    
+    //items lists
+    .image_wrap {
+      position: relative;
+      display: block;
+
+      .product_img {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+
+      .img_heart {
+        position: absolute;
+        bottom: 40%;
+        right: 4%;
+      }
+    }
+      .prodcut_card_detail_container {
+        margin: 20px 10px;
+        font-family: "adihausDINRegular",Helvetica,Arial,sans-serif;
+        font-size: 12px;
+        min-height: 75px;
+        padding: 8px 8px 15px;
+        
+        .product_detail_wrapper {
+          display: block;
+          min-height: 75px;
+          padding: 10px 10px 20px;
+
+          .product_detail_top {
+            color: #767677;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 10px;
+            min-height: 17px;
+            letter-spacing: .5px;
+            margin: 0 0 5px;
+            max-height: 30px;
+            overflow: hidden;
+          }
+
+          .product_detail_bottom {
+            height: 60px;
+            line-height: normal;
+            font-family: 'adihausDINRegular','Helvetica','Arial','sans-serif';
+            
+
+            .product_name {
+              letter-spacing: .5px;
+              margin: 0 0 5px;
+              max-height: 30px;
+              overflow: hidden;
+            }
+
+            .product_price {
+              font-size: 12px;
+              display: flex;
+              flex-wrap: wrap;
+            }
+
+          }
+
+          .stars {
+            position: relative;
+            vertical-align: middle;
+            display: inline-block;
+            color: white;
+            overflow: hidden;
+          
+          }
+          .fullStars {
+            position: absolute;
+            left: 0;
+            top: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            color: #767677;
+            width: 50%;
+          }
+          
+          .emptyStars:before, .fullStars:before {
+          content:"\2605\2605\2605\2605\2605";
+          font-size: 6pt;
+          }
+          .emptyStars:before {
+          -webkit-text-stroke: 1px #767677;
+          }
+          .fullStars:before {
+          -webkit-text-stroke: 1px #767677;
+          }
+        }
+    }
+  }
+}
+
+
+@font-face {
+  font-family: 'adihausDINBold';
+  src: url('./assets/fonts/AdihausDIN-Bold.woff2') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'adihausDINRegular';
+  src: url('./assets/fonts/AdihausDIN-Regular.woff2') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'adineuePROBold';
+  src: url('./assets/fonts/adineuePRO-Bold.woff2') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'adineuePRORegular';
+  src: url('./assets/fonts/adineuePRO-Regular.woff2') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
