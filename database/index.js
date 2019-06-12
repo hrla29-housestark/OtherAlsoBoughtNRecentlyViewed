@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/fecadidas_othersAlsoBought', {useNewUrlParser: true});
+mongoose.connect(`mongodb+srv://ProJeff:${Process.env.DATABASEPASSWORD}@cluster0-bdlt5.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true});
 
 const adidasSchema = mongoose.Schema({
   productID: {type: Number},
